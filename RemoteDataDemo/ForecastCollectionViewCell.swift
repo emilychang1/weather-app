@@ -16,5 +16,13 @@ class ForecastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nowLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.cornerRadius = 4
+        layer.masksToBounds = true
+        
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.red.cgColor
+    }
 }

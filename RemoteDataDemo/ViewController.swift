@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let cellIdentifier = "ForecastCell"
     var weatherData = [WeatherDataItem]()
     private lazy var weatherDataService = WeatherDataService.sharedInstance
@@ -26,14 +27,16 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     }
     
     private func loadWeatherData() {
+        activityIndicator.startAnimating()
         weatherDataService.getWeatherData { [weak self] (weatherDataItems) in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+            }
             guard let weatherDataItems = weatherDataItems else { return }
             DispatchQueue.main.async {
                 self?.weatherData = weatherDataItems
                 self?.collectionView.reloadData()
             }
-            
-            
         }
     }
 
