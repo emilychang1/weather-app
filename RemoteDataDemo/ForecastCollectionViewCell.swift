@@ -23,6 +23,6 @@ class ForecastCollectionViewCell: UICollectionViewCell {
         layer.masksToBounds = true
         
         layer.borderWidth = 2
-        layer.borderColor = UIColor.red.cgColor
+        layer.borderColor = UIColor.gray.cgColor
     }
 }

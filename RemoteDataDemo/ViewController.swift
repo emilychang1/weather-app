@@ -54,7 +54,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         cell.dayOfTheWeekLabel.text = weatherDataItem.dayOfWeek
         cell.highLabel.text = "\(weatherDataItem.highTemp)"
         cell.lowLabel.text = "\(weatherDataItem.lowTemp)"
-        cell.nowLabel.text = "\(weatherDataItem.currentTemp)"
+        cell.nowLabel.text = "\(weatherDataItem.dayTemp)"
         cell.descriptionLabel.text = weatherDataItem.description
         
         return cell

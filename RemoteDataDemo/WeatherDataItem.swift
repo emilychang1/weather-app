@@ -12,7 +12,7 @@ struct WeatherDataItem {
     var dayOfWeek: String
     var highTemp: Int
     var lowTemp: Int
-    var currentTemp: Int
+    var dayTemp: Int
     var description: String
     
     init?(json: [String: Any]) {
@@ -30,7 +30,7 @@ struct WeatherDataItem {
         
         self.highTemp = Int(max)
         self.lowTemp = Int(min)
-        self.currentTemp = Int(day)
+        self.dayTemp = Int(day)
         self.description = main
         
         let formatter = DateFormatter()
