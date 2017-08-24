@@ -12,6 +12,20 @@ import os.log
 class SettingsViewController: UIViewController {
     @IBOutlet weak var cityLabel: UITextField!
 
+    @IBAction func cancel(_ sender: UIButton) {
+        let isPresentingInChangeSettingsMode = presentingViewController is UINavigationController
+        
+        if isPresentingInChangeSettingsMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The SettingsViewController is not inside a navigation controller.")
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCity()

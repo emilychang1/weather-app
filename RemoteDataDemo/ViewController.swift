@@ -18,9 +18,11 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     private lazy var weatherDataService = WeatherDataService.sharedInstance
     var city = ""
     
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         loadWeatherData()
     }
     
@@ -33,9 +35,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             self.city = city
         }
         else {
-            city = "LosAngeles"
+            city = "Los Angeles"
         }
-        
+        navBar.title = "\(city) Weather"
         weatherDataService.urlString = generateURLString()
         print("fetching data from \(weatherDataService.urlString)")
 
@@ -93,8 +95,11 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             let city = sourceViewController.cityLabel.text {
             self.city = city
             saveCity()
+            loadWeatherData()
         }
     }
+    
+
 }
 
 extension String {
