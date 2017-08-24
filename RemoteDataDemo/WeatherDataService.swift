@@ -11,7 +11,7 @@ import Foundation
 class WeatherDataService {
     static let sharedInstance = WeatherDataService()
     private let urlSession = URLSession(configuration: .default)
-    private let urlString = "https://api.openweathermap.org/data/2.5/forecast/daily?q=LosAngeles&mode=json&units=imperial&cnt=7&appid=bd43377aeae4f4b3f5e2d60b64075902"
+    var urlString = "https://api.openweathermap.org/data/2.5/forecast/daily?q=LosAngeles&mode=json&units=imperial&cnt=7&appid=bd43377aeae4f4b3f5e2d60b64075902"
     
     private init() { }
     
